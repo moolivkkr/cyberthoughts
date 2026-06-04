@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="372" viewBox="0 0 680 372" role="img" font-family="'Helvetica Neue', Arial, sans-serif">
+  <title>Option C: AL2023 FIPS software signing architecture</title>
+  <desc>A workload requests a certificate from an auto-scaled fleet of Amazon Linux 2023 signers running in FIPS mode (L1), which sign in software with the key held in memory; an external L3 root is optional and only anchors trust.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+  <style>
+    text { dominant-baseline: central; }
+    .title { font-size: 14px; font-weight: 500; }
+    .sub { font-size: 12px; font-weight: 400; }
+    .lbl { font-size: 12px; font-weight: 400; fill: #73726C; }
+    .arr { stroke: #73726C; stroke-width: 1.5; fill: none; }
+  </style>
+
+  <rect x="240" y="40" width="200" height="56" rx="8" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5" stroke-dasharray="5 4"/>
+  <text class="title" x="340" y="61" text-anchor="middle" fill="#2C2C2A">External root</text>
+  <text class="sub" x="340" y="79" text-anchor="middle" fill="#5F5E5A">L3 · optional anchor</text>
+
+  <line x1="340" y1="100" x2="340" y2="148" class="arr" marker-end="url(#arrow)" stroke-dasharray="4 4"/>
+
+  <rect x="240" y="150" width="200" height="56" rx="8" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.5"/>
+  <text class="title" x="340" y="171" text-anchor="middle" fill="#3C3489">AL2023 FIPS signers</text>
+  <text class="sub" x="340" y="189" text-anchor="middle" fill="#534AB7">L1 · auto-scaled fleet</text>
+
+  <line x1="290" y1="258" x2="290" y2="210" class="arr" marker-end="url(#arrow)"/>
+  <line x1="390" y1="210" x2="390" y2="258" class="arr" marker-end="url(#arrow)"/>
+
+  <rect x="240" y="260" width="200" height="56" rx="8" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5"/>
+  <text class="title" x="340" y="281" text-anchor="middle" fill="#2C2C2A">Workload (client)</text>
+  <text class="sub" x="340" y="299" text-anchor="middle" fill="#5F5E5A">requests cert</text>
+
+  <rect x="170" y="334" width="12" height="12" rx="3" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.5"/>
+  <text class="lbl" x="187" y="341" text-anchor="start">L1 software (signs here)</text>
+  <rect x="440" y="334" width="12" height="12" rx="3" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5"/>
+  <text class="lbl" x="457" y="341" text-anchor="start">optional / client</text>
+</svg>

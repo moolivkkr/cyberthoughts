@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="372" viewBox="0 0 680 372" role="img" font-family="'Helvetica Neue', Arial, sans-serif">
+  <title>Option D: tiered architecture (recommended)</title>
+  <desc>An L3 hardware root in KMS or CloudHSM signs an intermediate CA rarely; an auto-scaled fleet of Amazon Linux 2023 signers in FIPS mode (L1) issues short-lived SVIDs to workloads.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+  <style>
+    text { dominant-baseline: central; }
+    .title { font-size: 14px; font-weight: 500; }
+    .sub { font-size: 12px; font-weight: 400; }
+    .lbl { font-size: 12px; font-weight: 400; fill: #73726C; }
+    .arr { stroke: #73726C; stroke-width: 1.5; fill: none; }
+  </style>
+
+  <!-- recommended pill -->
+  <rect x="40" y="44" width="118" height="24" rx="12" fill="#EAF3DE" stroke="#3B6D11" stroke-width="0.5"/>
+  <text class="sub" x="99" y="56" text-anchor="middle" fill="#27500A">recommended</text>
+
+  <!-- T1 root (teal / L3) -->
+  <rect x="240" y="40" width="200" height="56" rx="8" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
+  <text class="title" x="340" y="61" text-anchor="middle" fill="#085041">KMS / CloudHSM root</text>
+  <text class="sub" x="340" y="79" text-anchor="middle" fill="#0F6E56">L3 · signs intermediate</text>
+
+  <!-- bootstrap arrow -->
+  <line x1="340" y1="100" x2="340" y2="148" class="arr" marker-end="url(#arrow)" stroke-dasharray="4 4"/>
+  <text class="lbl" x="352" y="124" text-anchor="start">bootstrap (rare)</text>
+
+  <!-- T2 signers (purple / L1) -->
+  <rect x="240" y="150" width="200" height="56" rx="8" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.5"/>
+  <text class="title" x="340" y="171" text-anchor="middle" fill="#3C3489">AL2023 FIPS signers</text>
+  <text class="sub" x="340" y="189" text-anchor="middle" fill="#534AB7">L1 · issues SVIDs</text>
+
+  <!-- request / response arrows -->
+  <line x1="290" y1="258" x2="290" y2="210" class="arr" marker-end="url(#arrow)"/>
+  <line x1="390" y1="210" x2="390" y2="258" class="arr" marker-end="url(#arrow)"/>
+
+  <!-- T3 workload (gray) -->
+  <rect x="240" y="260" width="200" height="56" rx="8" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5"/>
+  <text class="title" x="340" y="281" text-anchor="middle" fill="#2C2C2A">Workload (client)</text>
+  <text class="sub" x="340" y="299" text-anchor="middle" fill="#5F5E5A">requests SVID</text>
+
+  <!-- legend -->
+  <rect x="150" y="334" width="12" height="12" rx="3" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
+  <text class="lbl" x="167" y="341" text-anchor="start">L3 root</text>
+  <rect x="290" y="334" width="12" height="12" rx="3" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.5"/>
+  <text class="lbl" x="307" y="341" text-anchor="start">L1 issuance</text>
+  <rect x="450" y="334" width="12" height="12" rx="3" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5"/>
+  <text class="lbl" x="467" y="341" text-anchor="start">client</text>
+</svg>
